@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.Scenes.Scripts.Game
+namespace Assets.Scripts.Game
 {
     public class CanvasManager : MonoBehaviour
     {
