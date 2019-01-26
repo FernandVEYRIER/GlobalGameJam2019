@@ -33,6 +33,9 @@ namespace Assets.Scripts.Game
 
         [SerializeField]
         private ScoreHandler _scoreHandler;
+        
+        [SerializeField]
+        private float _scoreStep = 1;
 
         public static GameManager Instance { get; private set; }
 
@@ -45,6 +48,14 @@ namespace Assets.Scripts.Game
             else
             {
                 Instance = this;
+            }
+        }
+
+        private void Update()
+        {
+            if (GameState == State.PLAY)
+            {
+                ScoreHandler.AddPoints(Time.deltaTime * _scoreStep);
             }
         }
 

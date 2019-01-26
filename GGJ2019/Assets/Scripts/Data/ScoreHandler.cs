@@ -50,6 +50,11 @@ namespace Assets.Scripts.Data
                 _scoreSinceLastCombo = 0;
             ComboMultiplier = _comboCurve.Evaluate(_scoreSinceLastCombo);
         }
+
+        internal void AddPoints(object p)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public class ComboEvent : EventArgs
