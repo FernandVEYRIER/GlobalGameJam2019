@@ -44,7 +44,6 @@ namespace Assets.Scripts.Game
 
                 if ((int)_constructionHandler.GetBlockTotalHeight() >= _lastHeightGenerated - _heightStep)
                 {
-                    //_lastHeightGenerated = (int)(_constructionHandler.GetBlockTotalHeight() / _heightStep);
                     SpawnHeightDisplay();
                 }
             }

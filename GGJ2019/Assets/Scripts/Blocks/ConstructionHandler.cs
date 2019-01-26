@@ -18,18 +18,7 @@ namespace Assets.Scripts.Blocks
 
         private Vector3 _startPosition;
 
-        public GameObject prefab;
-
         private float _height = 0;
-
-        public void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.M))
-            {
-                var block = Instantiate(prefab);
-                PushBlock(block.GetComponent<ABlock>());
-            }
-        }
 
         /// <summary>
         /// List of blocks in the building.
