@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Blocks;
+using Assets.Scripts.Data;
 using System;
 using UnityEngine;
 
@@ -8,7 +9,9 @@ namespace Assets.Scripts.Game
     {
         public enum State { PLAY, PAUSE, GAME_OVER }
 
-        public EventHandler<GameEventArgs> OnGameStateChange;
+        public ScoreHandler ScoreHandler => _scoreHandler;
+
+        public event EventHandler<GameEventArgs> OnGameStateChange;
 
         public State GameState
         {
@@ -28,6 +31,9 @@ namespace Assets.Scripts.Game
         [SerializeField]
         private BlockCombination _blockCombination;
 
+        [SerializeField]
+        private ScoreHandler _scoreHandler;
+
         public static GameManager Instance { get; private set; }
 
         private void Awake()
@@ -44,7 +50,12 @@ namespace Assets.Scripts.Game
 
         public bool CheckCombination(ABlock a, ABlock b)
         {
-            return _blockCombination.CheckPair(a, b);
+            if (_blockCombination.CheckPair(a, b))
+            {
+                ScoreHandler.SetPositiveAction(true);
+                return true;
+            }
+            return false;
         }
     }
 

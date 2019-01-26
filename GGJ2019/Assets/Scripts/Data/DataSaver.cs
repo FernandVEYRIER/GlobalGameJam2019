@@ -40,7 +40,6 @@ namespace Assets.Scripts.Data
             }
             else
             {
-                File.Create(Application.persistentDataPath + savePath);
                 SaveData();
             }
         }

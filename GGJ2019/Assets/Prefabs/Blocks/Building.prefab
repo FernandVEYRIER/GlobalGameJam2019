@@ -46,7 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _width: 3
   _blockScale: 1
-  prefab: {fileID: 8168575520619347826, guid: 76e5c40e582c0f14c8545b938135e8dc, type: 3}
 --- !u!114 &7440571821292130598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,6 +59,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _constructionHandler: {fileID: 7440571821292130600}
-  _heightDisplayPrefab: {fileID: 0}
+  _heightDisplayPrefab: {fileID: 7554565790392642210, guid: bac445dddcd19c94d97e7a496cc4725a,
+    type: 3}
   _smoothTime: 0.3
   _heightStep: 10
+  _heightForwardCount: 3

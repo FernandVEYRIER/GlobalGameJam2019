@@ -43,5 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ed30defbf7c7a04fb7586cee002e5b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _combinedBlockPrefab: {fileID: 0}
+  _combinedBlockPrefab: {fileID: 8110768085367764720, guid: b8571bb6dabc36a4e99c8c284ab38b71,
+    type: 3}
   _constructionHandler: {fileID: 0}
+  prefab: {fileID: 6672742106420098892, guid: 76e5c40e582c0f14c8545b938135e8dc, type: 3}
