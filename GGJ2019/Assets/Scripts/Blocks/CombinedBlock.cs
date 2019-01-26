@@ -63,7 +63,7 @@ namespace Assets.Scripts.Blocks
         public void Update()
         {
             if (_isTargetSet)
-                transform.localPosition = Vector3.Lerp(startPos, _target, currTime += Time.deltaTime / 2);
+                transform.localPosition = Vector3.Lerp(startPos, _target, currTime += Time.deltaTime / 1.3f);
         }
     }
 }

@@ -18,5 +18,10 @@ namespace Assets.Scripts.Blocks
         {
             transform.localPosition = pos;
         }
+
+        public virtual void DestroyBlock()
+        {
+            Destroy(gameObject);
+        }
     }
 }
