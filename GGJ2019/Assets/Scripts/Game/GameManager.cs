@@ -44,6 +44,8 @@ namespace Assets.Scripts.Game
         [SerializeField]
         private BlockBuilder _blockBuilder;
 
+        private State _previousGameState;
+
         private void Awake()
         {
             if (Instance != null)
@@ -62,6 +64,10 @@ namespace Assets.Scripts.Game
             {
                 ScoreHandler.AddPoints(Time.deltaTime * _scoreStep);
             }
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                SetPause();
+            }
         }
 
         public bool CheckCombination(ABlock a, ABlock b)
@@ -77,6 +83,21 @@ namespace Assets.Scripts.Game
                 a.DestroyBlock();
                 b.DestroyBlock();
                 return false;
+            }
+        }
+
+        public void SetPause()
+        {
+            if (GameState != State.PAUSE)
+            {
+                _previousGameState = GameState;
+                GameState = State.PAUSE;
+                Time.timeScale = 0;
+            }
+            else
+            {
+                GameState = _previousGameState;
+                Time.timeScale = 1;
             }
         }
     }
