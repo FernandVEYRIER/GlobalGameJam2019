@@ -30,13 +30,30 @@ namespace Assets.Scripts.Data
 
         public void AddPoints(float amount)
         {
-            if (amount <= 0)
-            {
-                _scoreSinceLastCombo = 0;
-            }
-            ComboMultiplier = _comboCurve.Evaluate(_scoreSinceLastCombo);
+            //if (amount <= 0)
+            //{
+            //    _scoreSinceLastCombo = 0;
+            //}
             Score += amount * ComboMultiplier;
-            _scoreSinceLastCombo += amount * ComboMultiplier;
+            //_scoreSinceLastCombo += amount * ComboMultiplier;
+        }
+
+        /// <summary>
+        /// Sets if the player managed to do a positive action, or failed. Upgrades the combo accordingly.
+        /// </summary>
+        /// <param name="isPositive"></param>
+        public void SetPositiveAction(bool isPositive)
+        {
+            if (isPositive)
+                _scoreSinceLastCombo += 1;
+            else
+                _scoreSinceLastCombo = 0;
+            ComboMultiplier = _comboCurve.Evaluate(_scoreSinceLastCombo);
+        }
+
+        internal void AddPoints(object p)
+        {
+            throw new NotImplementedException();
         }
     }
 
