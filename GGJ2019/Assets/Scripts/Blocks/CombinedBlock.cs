@@ -82,6 +82,7 @@ namespace Assets.Scripts.Blocks
                 {
                     StartCoroutine(FadeCoroutine(false));
                     _isTargetSet = false;
+                    transform.localPosition = _target;
                 }
             }
         }
