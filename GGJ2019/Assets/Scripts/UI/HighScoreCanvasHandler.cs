@@ -5,26 +5,12 @@ using UnityEngine;
 
 namespace Assets.Scripts.UI
 {
-    public class ScoreHandler : MonoBehaviour
+    public class HighScoreCanvasHandler : MonoBehaviour
     {
         [SerializeField]
         private GameObject _scorePrefab;
 
         private readonly List<GameObject> _scores = new List<GameObject>();
-
-        void Awake()
-        {
-            var l = new List<ScoreItem>();
-            l.Add(new ScoreItem { Name = "John Doe", Score = 42 });
-            l.Add(new ScoreItem { Name = "Bob Lepicoleur", Score = 666 });
-            l.Add(new ScoreItem { Name = "Bob Lepicoleur", Score = 666 });
-            l.Add(new ScoreItem { Name = "Bob Lepicoleur", Score = 666 });
-            l.Add(new ScoreItem { Name = "Bob Lepicoleur", Score = 666 });
-            l.Add(new ScoreItem { Name = "Bob Lepicoleur", Score = 666 });
-            l.Add(new ScoreItem { Name = "Bob Lepicoleur", Score = 666 });
-            DataSaver.SetValue("Scores", l);
-            DataSaver.SaveData();
-        }
 
         private void OnEnable()
         {
