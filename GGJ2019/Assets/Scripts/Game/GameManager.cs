@@ -71,7 +71,13 @@ namespace Assets.Scripts.Game
                 ScoreHandler.SetPositiveAction(true);
                 return true;
             }
-            return false;
+            else
+            {
+                ScoreHandler.SetPositiveAction(false);
+                a.DestroyBlock();
+                b.DestroyBlock();
+                return false;
+            }
         }
     }
 

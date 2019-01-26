@@ -1,5 +1,4 @@
 ﻿using Assets.Scripts.Game;
-using System;
 using UnityEngine;
 
 namespace Assets.Scripts.Blocks
@@ -11,6 +10,14 @@ namespace Assets.Scripts.Blocks
     {
         private ABlock _leftBlock;
         private ABlock _rightBlock;
+
+        private Vector3 _target;
+        private bool _isTargetSet;
+
+        private void Start()
+        {
+            startPos = transform.position;
+        }
 
         public void PushBlockLeft(ABlock block)
         {
@@ -41,6 +48,22 @@ namespace Assets.Scripts.Blocks
         public override float GetWidth()
         {
             return _leftBlock?.GetWidth() ?? 0 + _rightBlock?.GetWidth() ?? 0;
+        }
+
+        public override void SetBlockPosition(Vector3 pos)
+        {
+            startPos = transform.localPosition;
+            _target = pos;
+            _isTargetSet = true;
+        }
+
+        private float currTime;
+        private Vector3 startPos;
+
+        public void Update()
+        {
+            if (_isTargetSet)
+                transform.localPosition = Vector3.Lerp(startPos, _target, currTime += Time.deltaTime / 1.3f);
         }
     }
 }

@@ -38,10 +38,14 @@ namespace Assets.Scripts.Blocks
         public int PushBlock(ABlock block)
         {
             block.transform.SetParent(transform);
-            block.transform.localPosition = new Vector3(
+            block.SetBlockPosition(new Vector3(
                 _startPosition.x + (block.GetWidth() * (_blocks.Count % _width)),
                 _startPosition.y + (block.GetHeight() * (_blocks.Count / _width)),
-                _startPosition.z);
+                _startPosition.z));
+            //block.transform.localPosition = new Vector3(
+            //    _startPosition.x + (block.GetWidth() * (_blocks.Count % _width)),
+            //    _startPosition.y + (block.GetHeight() * (_blocks.Count / _width)),
+            //    _startPosition.z);
             _blocks.Add(block);
             if (_blocks.Count % _width == 0)
             {
