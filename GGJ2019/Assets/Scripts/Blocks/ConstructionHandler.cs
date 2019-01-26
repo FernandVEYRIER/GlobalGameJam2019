@@ -12,9 +12,15 @@ namespace Assets.Scripts.Blocks
         [SerializeField]
         private int _width = 1;
 
+        [Tooltip("Scale converter for block height display.")]
+        [SerializeField]
+        private int _blockScale = 1;
+
         private Vector3 _startPosition;
 
         public GameObject prefab;
+
+        private float _height = 0;
 
         public void Update()
         {
@@ -42,12 +48,31 @@ namespace Assets.Scripts.Blocks
         /// <returns>The total block count</returns>
         public int PushBlock(ABlock block)
         {
-            block.transform.position = new Vector3(
-                _startPosition.x + block.GetWidth() * (_blocks.Count % _width),
-                _startPosition.y + block.GetHeight() * (_blocks.Count / _width),
+            block.transform.SetParent(transform);
+            block.transform.localPosition = new Vector3(
+                _startPosition.x + (block.GetWidth() * (_blocks.Count % _width)),
+                _startPosition.y + (block.GetHeight() * (_blocks.Count / _width)),
                 _startPosition.z);
             _blocks.Add(block);
+            if (_blocks.Count % _width == 0)
+            {
+                _height += block.GetHeight();
+            }
             return _blocks.Count;
+        }
+
+        /// <summary>
+        /// Gets the blocks total height.
+        /// </summary>
+        /// <returns></returns>
+        public float GetBlockTotalHeight()
+        {
+            return _height;
+        }
+
+        public float GetBlockTotalHeightWithScaling()
+        {
+            return GetBlockTotalHeight() * _blockScale;
         }
     }
 }

@@ -24,7 +24,7 @@ namespace Assets.Scripts.Game
 
         private State _gameState;
 
-        public GameManager Instance { get; private set; }
+        public static GameManager Instance { get; private set; }
 
         private void Awake()
         {
