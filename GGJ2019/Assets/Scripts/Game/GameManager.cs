@@ -8,7 +8,7 @@ namespace Assets.Scripts.Game
     {
         public enum State { PLAY, PAUSE, GAME_OVER }
 
-        public EventHandler<GameEventArgs> OnGameStateChange;
+        public event EventHandler<GameEventArgs> OnGameStateChange;
 
         public State GameState
         {
