@@ -10,9 +10,9 @@ public class Spawner : MonoBehaviour
     public Transform blockPath;
     public float blockSpeed = 50f;
     public float angularSpeed = 10f;
+    public bool left;
 
     private List<ABlock> m_blockQueue = new List<ABlock>();
-    private float spriteHeight;
     private List<Transform> m_path = new List<Transform>();
 
     private int m_isInit;
@@ -22,7 +22,6 @@ public class Spawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spriteHeight = prefabs[0].GetComponent<SpriteRenderer>().bounds.size.y;
         m_slowSpeed = blockSpeed / 10f;
         InitPath();
     }
