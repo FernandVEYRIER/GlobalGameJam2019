@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.Blocks;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
@@ -15,11 +16,15 @@ public class PlayerController : MonoBehaviour
     private string[] throwInputs = new[] { "ThrowP1", "ThrowP2" };
 
     public Player playerID;
+    public Spawner spawner;
+    //public 
 
     private int _playerID;
     private Animator _animator;
 
     private Vector3 _initialScale;
+
+    private ABlock _block;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,13 +46,25 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (Input.GetButtonDown(throwInputs[_playerID]))
         {
+            _block = spawner.TakeBlock();
             _animator.SetTrigger("Throw");
         }
         else if (Input.GetButtonDown(buildInputs[_playerID]))
         {
+            _block = spawner.TakeBlock();
             _animator.SetTrigger("Build");
+        }
+
+        if (_block)
+        {
+
+            var point = spawner.GetLastPoint();
+
+            _block.transform.position = Vector3.MoveTowards(_block.transform.position, point,
+                spawner.blockSpeed * Time.deltaTime * 2);
         }
     }
 }
