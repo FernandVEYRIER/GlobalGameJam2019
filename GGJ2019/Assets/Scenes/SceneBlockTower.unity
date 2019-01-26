@@ -944,18 +944,6 @@ PrefabInstance:
       propertyPath: _constructionHandler
       value: 
       objectReference: {fileID: 2061206662}
-    - target: {fileID: 6253835280974264781, guid: 71f092830e0b2b14db8c32fee808c31a,
-        type: 3}
-      propertyPath: _combinedBlockPrefab
-      value: 
-      objectReference: {fileID: 8110768085367764720, guid: b8571bb6dabc36a4e99c8c284ab38b71,
-        type: 3}
-    - target: {fileID: 6253835280974264781, guid: 71f092830e0b2b14db8c32fee808c31a,
-        type: 3}
-      propertyPath: prefab
-      value: 
-      objectReference: {fileID: 6672742106420098892, guid: 76e5c40e582c0f14c8545b938135e8dc,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71f092830e0b2b14db8c32fee808c31a, type: 3}
 --- !u!1001 &7440571820911990190
@@ -1025,12 +1013,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7440571821292130598, guid: 22494c90c1fc1b3448bc92a2a0e375fc,
-        type: 3}
-      propertyPath: _heightDisplayPrefab
-      value: 
-      objectReference: {fileID: 7554565790392642210, guid: bac445dddcd19c94d97e7a496cc4725a,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22494c90c1fc1b3448bc92a2a0e375fc, type: 3}
 --- !u!1001 &8168575520097157063
