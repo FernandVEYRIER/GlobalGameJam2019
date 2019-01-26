@@ -13,12 +13,12 @@ namespace Assets.Scripts.Blocks
 
         public override float GetHeight()
         {
-            return _spriteRenderer.size.y;
+            return _spriteRenderer.bounds.size.y;
         }
 
         public override float GetWidth()
         {
-            return _spriteRenderer.size.x;
+            return _spriteRenderer.bounds.size.x;
         }
     }
 }

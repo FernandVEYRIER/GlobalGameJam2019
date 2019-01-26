@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Assets.Scripts.Blocks;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
@@ -10,20 +11,14 @@ public class Spawner : MonoBehaviour
     public float blockSpeed = 50f;
     public float angularSpeed = 10f;
 
-    private List<Block> m_blockQueue = new List<Block>();
+    private List<ABlock> m_blockQueue = new List<ABlock>();
     private float spriteHeight;
     private List<Transform> m_path = new List<Transform>();
 
     private int m_isInit;
     private float m_slowSpeed;
 
-    public class Block
-    {
-        public GameObject obj;
-        public Transform transform;
-        public int currentID;
-        public int targetID;
-    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +30,7 @@ public class Spawner : MonoBehaviour
     //Init path transform point
     void InitPath()
     {
-        m_isInit = blockPath.childCount;
+        m_isInit = blockPath.childCount - 1;
         for (int i = 0; i < m_isInit; i++)
         {
             m_path.Add(blockPath.GetChild(i));
@@ -69,7 +64,7 @@ public class Spawner : MonoBehaviour
         }
     }
 
-    private void MoveBlockTowardNext(Block block)
+    private void MoveBlockTowardNext(ABlock block)
     {
         var point = m_path[block.currentID + 1];
         block.transform.position = Vector3.MoveTowards(block.transform.position, point.position,
@@ -97,23 +92,24 @@ public class Spawner : MonoBehaviour
     //    m_blockQueue.Enqueue(block);
     //}
 
-    Block InstantiateBlock(int targetPos)
+    ABlock InstantiateBlock(int targetPos)
     {
         var dice = Random.Range(0, prefabs.Length);
         var obj = Instantiate(prefabs[dice], m_path[0].position, Quaternion.identity);
         obj.transform.parent = transform;
-        var block = new Block() { obj = obj, transform = obj.transform, currentID = 0, targetID = targetPos };
+        var block = obj.GetComponent<ABlock>();
+        block.currentID = 0;
+        block.targetID = targetPos;
         return block;
     }
 
-    Block TakeBlock()
+    public ABlock TakeBlock()
     {
         if (m_isInit > 0 || m_blockQueue[0].currentID == m_path.Count) return null;
         blockSpeed = m_slowSpeed;
         var block = m_blockQueue[0];
         m_blockQueue.RemoveAt(0);
         block.transform.SetParent(null);
-        block.transform.position += Vector3.down * spriteHeight * 3;
         MoveAllBlockNext();
         m_blockQueue.Add(InstantiateBlock(0));
         return block;
@@ -125,5 +121,10 @@ public class Spawner : MonoBehaviour
         {
             ++block.targetID;
         }
+    }
+
+    public Vector3 GetLastPoint()
+    {
+        return blockPath.GetChild(blockPath.childCount - 1).position;
     }
 }

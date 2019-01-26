@@ -70,7 +70,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2a26e6a2a29272c4190301452dc75f41, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c3a8a673910d6554983e9c691d50714a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -113,3 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerID: 0
+  spawner: {fileID: 0}
+  kickScale: 10
+  kickSpeed: 10
+  targetKick: {fileID: 0}
