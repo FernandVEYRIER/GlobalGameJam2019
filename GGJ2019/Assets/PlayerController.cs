@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
     public float kickSpeed = 10f;
 
     public Transform targetKick;
+
+    public BlockBuilder BlockBuilder;
     //public 
 
     private int _playerID;
@@ -69,7 +71,6 @@ public class PlayerController : MonoBehaviour
                 _block = spawner.TakeBlock();
                 _animator.SetTrigger("Build");
             }
-
             if (_block)
             {
 
@@ -98,6 +99,14 @@ public class PlayerController : MonoBehaviour
     public void EndKick()
     {
         _isKicking = false;
+        if (playerID == Player.P1)
+        {
+            BlockBuilder.PushBlockLeft(_block);
+        }
+        else
+        {
+            BlockBuilder.PushBlockRight(_block);
+        }
         _block = null;
     }
 }
