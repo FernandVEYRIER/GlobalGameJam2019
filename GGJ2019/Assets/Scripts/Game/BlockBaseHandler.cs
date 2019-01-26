@@ -36,6 +36,8 @@ namespace Assets.Scripts.Game
 
         private void Start()
         {
+            _target = transform.position;
+            _offset = transform.position;
             SpawnHeightDisplay();
         }
 
