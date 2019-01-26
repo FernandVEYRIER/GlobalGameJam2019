@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Assets.Scripts.Blocks;
+using Assets.Scripts.Game;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
@@ -24,7 +25,7 @@ public class PlayerController : MonoBehaviour
 
     public Transform targetKick;
 
-    public BlockBuilder BlockBuilder;
+    private BlockBuilder _blockBuilder;
     //public 
 
     private int _playerID;
@@ -44,6 +45,7 @@ public class PlayerController : MonoBehaviour
         _initialScale = transform.localScale;
         _animator = GetComponent<Animator>();
         _finalScale = _initialScale * kickScale;
+        _blockBuilder = GameManager.Instance.BlockBuilder;
     }
 
     public void Flip()
@@ -101,11 +103,11 @@ public class PlayerController : MonoBehaviour
         _isKicking = false;
         if (playerID == Player.P1)
         {
-            BlockBuilder.PushBlockLeft(_block);
+            _blockBuilder.PushBlockLeft(_block);
         }
         else
         {
-            BlockBuilder.PushBlockRight(_block);
+            _blockBuilder.PushBlockRight(_block);
         }
         _block = null;
     }

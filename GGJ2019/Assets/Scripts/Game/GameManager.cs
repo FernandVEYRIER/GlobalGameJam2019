@@ -11,6 +11,8 @@ namespace Assets.Scripts.Game
 
         public ScoreHandler ScoreHandler => _scoreHandler;
 
+        public BlockBuilder BlockBuilder => _blockBuilder;
+
         public event EventHandler<GameEventArgs> OnGameStateChange;
 
         public State GameState
@@ -38,6 +40,9 @@ namespace Assets.Scripts.Game
         private float _scoreStep = 1;
 
         public static GameManager Instance { get; private set; }
+
+        [SerializeField]
+        private BlockBuilder _blockBuilder;
 
         private void Awake()
         {
