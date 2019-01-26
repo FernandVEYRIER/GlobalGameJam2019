@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.Game;
+using System;
 using UnityEngine;
 
 namespace Assets.Scripts.Blocks
@@ -29,7 +30,7 @@ namespace Assets.Scripts.Blocks
         {
             if (_leftBlock == null || _rightBlock == null)
                 return false;
-            return true;
+            return GameManager.Instance.CheckCombination(_leftBlock, _rightBlock);
         }
 
         public override float GetHeight()

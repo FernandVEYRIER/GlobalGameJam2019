@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.Blocks;
+using System;
 using UnityEngine;
 
 namespace Assets.Scripts.Game
@@ -24,6 +25,9 @@ namespace Assets.Scripts.Game
 
         private State _gameState;
 
+        [SerializeField]
+        private BlockCombination _blockCombination;
+
         public static GameManager Instance { get; private set; }
 
         private void Awake()
@@ -36,6 +40,11 @@ namespace Assets.Scripts.Game
             {
                 Instance = this;
             }
+        }
+
+        public bool CheckCombination(ABlock a, ABlock b)
+        {
+            return _blockCombination.CheckPair(a, b);
         }
     }
 

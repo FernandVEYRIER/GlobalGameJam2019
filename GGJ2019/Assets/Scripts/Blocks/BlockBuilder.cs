@@ -19,7 +19,7 @@ namespace Assets.Scripts.Blocks
 
         private void Start()
         {
-            _combinedBlockInstance = Instantiate(_combinedBlockPrefab);
+            CreateBlockInstance();
         }
 
         private void Update()
@@ -51,8 +51,15 @@ namespace Assets.Scripts.Blocks
             if (_combinedBlockInstance.CheckCombination())
             {
                 _constructionHandler.PushBlock(_combinedBlockInstance);
-                _combinedBlockInstance = Instantiate(_combinedBlockPrefab);
+                CreateBlockInstance();
             }
+        }
+
+        private void CreateBlockInstance()
+        {
+            _combinedBlockInstance = Instantiate(_combinedBlockPrefab);
+            _combinedBlockInstance.transform.SetParent(transform);
+            _combinedBlockInstance.transform.localPosition = Vector3.zero;
         }
     }
 }
