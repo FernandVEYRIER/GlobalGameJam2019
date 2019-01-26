@@ -92,14 +92,14 @@ namespace Assets.Scripts.Blocks
             {
                 var em = _particleSystem.emission;
                 em.enabled = true;
-                for (float i = 1; i >= 0; i -= 0.1f)
-                {
-                    foreach (var sprite in GetComponentsInChildren<SpriteRenderer>())
-                    {
-                        sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, i);
-                    }
-                    yield return new WaitForSeconds(0.01f);
-                }
+                //for (float i = 1; i >= 0; i -= 1f)
+                //{
+                //    foreach (var sprite in GetComponentsInChildren<SpriteRenderer>())
+                //    {
+                //        sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, i);
+                //    }
+                //    yield return new WaitForSeconds(0.01f);
+                //}
                 foreach (var sprite in GetComponentsInChildren<SpriteRenderer>())
                 {
                     sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, 0);
