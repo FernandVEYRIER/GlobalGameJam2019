@@ -17,6 +17,12 @@ public class PlayerController : MonoBehaviour
 
     public Player playerID;
     public Spawner spawner;
+
+    public float kickScale = 10f;
+
+    public float kickSpeed = 10f;
+
+    public Transform targetKick;
     //public 
 
     private int _playerID;
@@ -25,12 +31,17 @@ public class PlayerController : MonoBehaviour
     private Vector3 _initialScale;
 
     private ABlock _block;
+
+    private bool _isKicking;
+
+    private Vector3 _finalScale;
     // Start is called before the first frame update
     void Start()
     {
         _playerID = (int) playerID;
         _initialScale = transform.localScale;
         _animator = GetComponent<Animator>();
+        _finalScale = _initialScale * kickScale;
     }
 
     public void Flip()
@@ -46,25 +57,47 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if (Input.GetButtonDown(throwInputs[_playerID]))
+        if (_isKicking == false)
         {
-            _block = spawner.TakeBlock();
-            _animator.SetTrigger("Throw");
+            if (Input.GetButtonDown(throwInputs[_playerID]))
+            {
+                _block = spawner.TakeBlock();
+                _animator.SetTrigger("Throw");
+            }
+            else if (Input.GetButtonDown(buildInputs[_playerID]))
+            {
+                _block = spawner.TakeBlock();
+                _animator.SetTrigger("Build");
+            }
+
+            if (_block)
+            {
+
+                var point = spawner.GetLastPoint();
+
+                _block.transform.position = Vector3.MoveTowards(_block.transform.position, point,
+                    spawner.blockSpeed * Time.deltaTime * 2);
+            }
         }
-        else if (Input.GetButtonDown(buildInputs[_playerID]))
+        else
         {
-            _block = spawner.TakeBlock();
-            _animator.SetTrigger("Build");
+            if (_block)
+            {
+                _block.transform.position = Vector3.MoveTowards(_block.transform.position, targetKick.position,
+                    kickSpeed * Time.deltaTime);
+                _block.transform.localScale = Vector3.Slerp(_block.transform.localScale, _finalScale, kickSpeed * Time.deltaTime);
+            }
         }
+    }
 
-        if (_block)
-        {
+    public void Kick()
+    {
+        _isKicking = true;
+    }
 
-            var point = spawner.GetLastPoint();
-
-            _block.transform.position = Vector3.MoveTowards(_block.transform.position, point,
-                spawner.blockSpeed * Time.deltaTime * 2);
-        }
+    public void EndKick()
+    {
+        _isKicking = false;
+        _block = null;
     }
 }
