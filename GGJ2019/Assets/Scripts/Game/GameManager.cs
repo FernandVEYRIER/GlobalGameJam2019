@@ -2,6 +2,7 @@
 using Assets.Scripts.Data;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,11 +10,13 @@ namespace Assets.Scripts.Game
 {
     public class GameManager : MonoBehaviour
     {
-        public enum State { PLAY, PAUSE, GAME_OVER }
+        public enum State { COUNTDOWN, PLAY, PAUSE, GAME_OVER }
 
         public ScoreHandler ScoreHandler => _scoreHandler;
 
         public BlockBuilder BlockBuilder => _blockBuilder;
+
+        public ConstructionHandler ConstructionHandler => _constructionHandler;
 
         public event EventHandler<GameEventArgs> OnGameStateChange;
 
@@ -32,6 +35,8 @@ namespace Assets.Scripts.Game
             }
         }
 
+        public int TotalScore { get; private set; }
+
         public float Timer => _timer;
 
         private State _gameState;
@@ -49,6 +54,9 @@ namespace Assets.Scripts.Game
 
         [SerializeField]
         private BlockBuilder _blockBuilder;
+
+        [SerializeField]
+        private ConstructionHandler _constructionHandler;
 
         private State _previousGameState;
 
@@ -73,6 +81,23 @@ namespace Assets.Scripts.Game
         private void Start()
         {
             OnTimerFinished.AddListener(() => GameState = State.GAME_OVER);
+            OnGameStateChange += (e, v) =>
+            {
+                if (v.Current == State.GAME_OVER)
+                {
+                    TotalScore = (int)(ScoreHandler.Score + ConstructionHandler.GetBlockTotalHeight() * 1000);
+                    var scores = DataSaver.GetValue<List<UI.ScoreItem>>("Scores");
+                    scores.Add(new UI.ScoreItem { Name = "Player1 & Player2", Score = TotalScore });
+                    DataSaver.SetValue("Scores", scores);
+                    DataSaver.SaveData();
+                }
+            };
+            Invoke("StartGame", 3f);
+        }
+
+        private void StartGame()
+        {
+            GameState = State.PLAY;
         }
 
         private void Update()
