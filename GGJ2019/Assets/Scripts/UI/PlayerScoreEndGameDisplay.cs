@@ -67,7 +67,7 @@ namespace Assets.Scripts.UI
 
         private void OnDisable()
         {
-            var scores = DataSaver.GetValue<List<UI.ScoreItem>>("Scores");
+            var scores = DataSaver.GetValue<List<UI.ScoreItem>>("Scores") ?? new List<ScoreItem>();
             scores.Add(new UI.ScoreItem { Name = $"{_textP1.text} & {_textP2.text}", Score = GameManager.Instance.TotalScore });
             DataSaver.SetValue("Scores", scores);
             DataSaver.SaveData();
