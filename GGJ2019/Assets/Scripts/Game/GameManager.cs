@@ -89,10 +89,6 @@ namespace Assets.Scripts.Game
                 if (v.Current == State.GAME_OVER)
                 {
                     TotalScore = (int)(ScoreHandler.Score + ConstructionHandler.GetBlockTotalHeight() * 1000);
-                    var scores = DataSaver.GetValue<List<UI.ScoreItem>>("Scores");
-                    scores.Add(new UI.ScoreItem { Name = "Player1 & Player2", Score = TotalScore });
-                    DataSaver.SetValue("Scores", scores);
-                    DataSaver.SaveData();
                 }
             };
             Invoke("StartGame", 3f);

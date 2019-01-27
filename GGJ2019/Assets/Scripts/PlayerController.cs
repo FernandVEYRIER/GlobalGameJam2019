@@ -63,34 +63,37 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_isKicking == false && _isAnim == false)
+        if (GameManager.Instance.GameState == GameManager.State.PLAY)
         {
-            if (Input.GetButtonDown(throwInputs[_playerID]) && spawner.CanTake())
+            if (_isKicking == false && _isAnim == false)
             {
-                _block = spawner.TakeBlock();
-                _animator.SetTrigger("Throw");
-            }
-            else if (Input.GetButtonDown(buildInputs[_playerID]) && spawner.CanTake())
-            {
-                _block = spawner.TakeBlock();
-                _animator.SetTrigger("Build");
-            }
-            if (_block)
-            {
+                if (Input.GetButtonDown(throwInputs[_playerID]) && spawner.CanTake())
+                {
+                    _block = spawner.TakeBlock();
+                    _animator.SetTrigger("Throw");
+                }
+                else if (Input.GetButtonDown(buildInputs[_playerID]) && spawner.CanTake())
+                {
+                    _block = spawner.TakeBlock();
+                    _animator.SetTrigger("Build");
+                }
+                if (_block)
+                {
 
-                var point = spawner.GetLastPoint();
+                    var point = spawner.GetLastPoint();
 
-                _block.transform.position = Vector3.MoveTowards(_block.transform.position, point,
-                    spawner.blockSpeed * Time.deltaTime * 2);
+                    _block.transform.position = Vector3.MoveTowards(_block.transform.position, point,
+                        spawner.blockSpeed * Time.deltaTime * 2);
+                }
             }
-        }
-        else if (_isKicking)
-        {
-            if (_block)
+            else if (_isKicking)
             {
-                _block.transform.position = Vector3.MoveTowards(_block.transform.position, targetKick.position,
-                    kickSpeed * Time.deltaTime);
-                _block.transform.localScale = Vector3.Slerp(_block.transform.localScale, _finalScale, kickSpeed * Time.deltaTime);
+                if (_block)
+                {
+                    _block.transform.position = Vector3.MoveTowards(_block.transform.position, targetKick.position,
+                        kickSpeed * Time.deltaTime);
+                    _block.transform.localScale = Vector3.Slerp(_block.transform.localScale, _finalScale, kickSpeed * Time.deltaTime);
+                }
             }
         }
     }

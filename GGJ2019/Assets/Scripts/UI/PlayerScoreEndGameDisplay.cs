@@ -1,5 +1,8 @@
-﻿using Assets.Scripts.Game;
+﻿using Assets.Scripts.Data;
+using Assets.Scripts.Game;
 using System.Collections;
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 namespace Assets.Scripts.UI
@@ -8,6 +11,12 @@ namespace Assets.Scripts.UI
     {
         [SerializeField]
         private GameObject _scoreItemPrefab;
+
+        [SerializeField]
+        private TMP_InputField _textP1;
+
+        [SerializeField]
+        private TMP_InputField _textP2;
 
         private void OnEnable()
         {
@@ -54,6 +63,14 @@ namespace Assets.Scripts.UI
             go.GetComponent<PlayerScoreEndElement>().Text = "Total: "
                 + GameManager.Instance.TotalScore.ToString()
                 + " pts";
+        }
+
+        private void OnDisable()
+        {
+            var scores = DataSaver.GetValue<List<UI.ScoreItem>>("Scores") ?? new List<ScoreItem>();
+            scores.Add(new UI.ScoreItem { Name = $"{_textP1.text} & {_textP2.text}", Score = GameManager.Instance.TotalScore });
+            DataSaver.SetValue("Scores", scores);
+            DataSaver.SaveData();
         }
     }
 }

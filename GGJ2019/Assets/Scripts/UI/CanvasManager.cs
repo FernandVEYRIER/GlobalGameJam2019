@@ -53,6 +53,7 @@ namespace Assets.Scripts.Game
 
         public void Quit()
         {
+            Time.timeScale = 1;
             SceneManager.Instance.LoadPreviousLevel();
         }
     }
