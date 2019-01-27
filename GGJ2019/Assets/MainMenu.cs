@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityTools.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
@@ -10,7 +11,8 @@ public class MainMenu : MonoBehaviour
 
     private string[] buildInputs = new[] { "BuildP1", "BuildP2" };
     private string[] throwInputs = new[] { "ThrowP1", "ThrowP2" };
-
+    private bool p1Ready = false;
+    private bool p2Ready = false;
 
     // Start is called before the first frame update
 
@@ -19,6 +21,8 @@ public class MainMenu : MonoBehaviour
     {
         CheckP1();
         CheckP2();
+        if (p1Ready && p2Ready)
+            SceneManager.Instance.LoadNextLevel();
     }
 
     void CheckP1()
@@ -26,6 +30,7 @@ public class MainMenu : MonoBehaviour
         if (Input.GetButtonDown(buildInputs[0]))
         {
             P1Button.SetTrigger("Ready");
+            p1Ready = !p1Ready;
         }
     }
 
@@ -34,6 +39,7 @@ public class MainMenu : MonoBehaviour
         if (Input.GetButtonDown(buildInputs[1]))
         {
             P2Button.SetTrigger("Ready");
+            p2Ready = !p2Ready;
         }
     }
 }
