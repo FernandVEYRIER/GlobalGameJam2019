@@ -6,29 +6,33 @@ using UnityEngine.UI;
 public class Autoscroll : MonoBehaviour
 {
     [SerializeField]
-    public float Speed = 0.5f;
+    public float MaxScroll = 235f;
+
+    [SerializeField]
+    public float Speed = 0.05f;
 
     private ScrollRect scrollComponent { get; set; }
-
+    
     private Vector2 targetPosition { get; set; }
 
-    public bool scroll { get; set; } = true;
+    private bool scroll { get; set; } = true;
 
     void Start()
     {
         scrollComponent = GetComponent<ScrollRect>();
-        targetPosition = new Vector2(scrollComponent.normalizedPosition.x, scrollComponent.normalizedPosition.y + scrollComponent.preferredHeight);
+        targetPosition = new Vector2(scrollComponent.normalizedPosition.x, scrollComponent.normalizedPosition.y - MaxScroll);
     }
 
     void Update()
     {
         if (scroll)
         {
-            scrollComponent.normalizedPosition = Vector2.Lerp(scrollComponent.normalizedPosition, targetPosition, Speed * Time.deltaTime);
-
-            if (scrollComponent.normalizedPosition == targetPosition)
+            scrollComponent.verticalNormalizedPosition -= Time.deltaTime * Speed;
+            
+            if (scrollComponent.verticalNormalizedPosition <= 0)
             {
                 StopScroll();
+                scrollComponent.verticalNormalizedPosition = 0;
             }
         }
     }
