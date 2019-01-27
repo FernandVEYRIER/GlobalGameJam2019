@@ -10,7 +10,7 @@ namespace Assets.Scripts.Game
 {
     public class GameManager : MonoBehaviour
     {
-        public enum State { PLAY, PAUSE, GAME_OVER }
+        public enum State { COUNTDOWN, PLAY, PAUSE, GAME_OVER }
 
         public ScoreHandler ScoreHandler => _scoreHandler;
 
@@ -92,6 +92,12 @@ namespace Assets.Scripts.Game
                     DataSaver.SaveData();
                 }
             };
+            Invoke("StartGame", 3f);
+        }
+
+        private void StartGame()
+        {
+            GameState = State.PLAY;
         }
 
         private void Update()
