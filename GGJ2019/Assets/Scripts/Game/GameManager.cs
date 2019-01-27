@@ -15,6 +15,8 @@ namespace Assets.Scripts.Game
 
         public BlockBuilder BlockBuilder => _blockBuilder;
 
+        public ConstructionHandler ConstructionHandler => _constructionHandler;
+
         public event EventHandler<GameEventArgs> OnGameStateChange;
 
         public UnityEvent OnTimerFinished;
@@ -49,6 +51,9 @@ namespace Assets.Scripts.Game
 
         [SerializeField]
         private BlockBuilder _blockBuilder;
+
+        [SerializeField]
+        private ConstructionHandler _constructionHandler;
 
         private State _previousGameState;
 
