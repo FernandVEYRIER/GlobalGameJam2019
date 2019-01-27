@@ -447,12 +447,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48220a0e36c157c46884617604caefa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 90
-  OnTimerFinished:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!1 &262872220
 GameObject:
   m_ObjectHideFlags: 0

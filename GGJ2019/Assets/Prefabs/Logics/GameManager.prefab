@@ -44,6 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87f3dab38a8280e409f70c3e4ea39884, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnTimerFinished:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   _blockCombination: {fileID: 8507490089561171509}
   _scoreHandler:
     _comboCurve:
@@ -91,6 +96,7 @@ MonoBehaviour:
   _scoreStep: 10
   _blockBuilder: {fileID: 0}
   _camera: {fileID: 0}
+  _timer: 90
 --- !u!114 &8507490089561171509
 MonoBehaviour:
   m_ObjectHideFlags: 0
