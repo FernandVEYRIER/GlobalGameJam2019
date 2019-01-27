@@ -2853,6 +2853,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scoreItemPrefab: {fileID: 3187289051178714063, guid: f04c120cf7519a94198899102ccea60b,
     type: 3}
+  _textP1: {fileID: 5211661599193846349}
+  _textP2: {fileID: 2565763024046743953}
 --- !u!1 &3941644341651107003
 GameObject:
   m_ObjectHideFlags: 0

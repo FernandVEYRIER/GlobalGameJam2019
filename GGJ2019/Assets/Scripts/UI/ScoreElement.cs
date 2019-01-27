@@ -36,7 +36,7 @@ namespace Assets.Scripts.UI
 
         private void UpdateUI()
         {
-            _text.text = $"{_rank}. {_scoreItem.Name} {_scoreItem.Score}pts";
+            _text.text = $"{_rank}. {_scoreItem.Name} {_scoreItem.Score} pts";
         }
     }
 

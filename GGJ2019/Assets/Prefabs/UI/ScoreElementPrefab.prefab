@@ -67,8 +67,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: 1. John Doe 132pts
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 984b4bbc48aab3d4288d6b386d3d7b51, type: 2}
-  m_sharedMaterial: {fileID: 21793625011630308, guid: 984b4bbc48aab3d4288d6b386d3d7b51,
+  m_fontAsset: {fileID: 11400000, guid: 992d7c758f3c836489dd73cbc94e384a, type: 2}
+  m_sharedMaterial: {fileID: 21243406712735512, guid: 992d7c758f3c836489dd73cbc94e384a,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -94,7 +94,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 72
+  m_fontSize: 62.15
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
