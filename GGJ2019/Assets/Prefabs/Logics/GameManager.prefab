@@ -96,7 +96,7 @@ MonoBehaviour:
   _scoreStep: 10
   _blockBuilder: {fileID: 0}
   _camera: {fileID: 0}
-  _timer: 90
+  _timer: 180
 --- !u!114 &8507490089561171509
 MonoBehaviour:
   m_ObjectHideFlags: 0
