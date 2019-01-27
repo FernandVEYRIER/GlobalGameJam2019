@@ -1881,6 +1881,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4158637074711360872, guid: 14d9632d339ef5d4ba40ac1e4d2c830d,
+        type: 3}
+      propertyPath: m_Name
+      value: P1_Player
+      objectReference: {fileID: 0}
     - target: {fileID: 1099052669345948404, guid: 14d9632d339ef5d4ba40ac1e4d2c830d,
         type: 3}
       propertyPath: m_IsActive
@@ -1965,11 +1970,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4158637074711360872, guid: 14d9632d339ef5d4ba40ac1e4d2c830d,
-        type: 3}
-      propertyPath: m_Name
-      value: P1_Player
       objectReference: {fileID: 0}
     - target: {fileID: 4158637074711360788, guid: 14d9632d339ef5d4ba40ac1e4d2c830d,
         type: 3}
