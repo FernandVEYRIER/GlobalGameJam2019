@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts.Blocks;
 using Assets.Scripts.Data;
 using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Assets.Scripts.Game
@@ -46,6 +47,9 @@ namespace Assets.Scripts.Game
 
         private State _previousGameState;
 
+        [SerializeField]
+        private Cinemachine.CinemachineVirtualCamera _camera;
+
         private void Awake()
         {
             if (Instance != null)
@@ -80,10 +84,19 @@ namespace Assets.Scripts.Game
             else
             {
                 ScoreHandler.SetPositiveAction(false);
+                StopAllCoroutines();
+                StartCoroutine(CameraShake(0.75f));
                 a.DestroyBlock();
                 b.DestroyBlock();
                 return false;
             }
+        }
+
+        private IEnumerator CameraShake(float duration)
+        {
+            _camera.GetCinemachineComponent<Cinemachine.CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = 4;
+            yield return new WaitForSeconds(duration);
+            _camera.GetCinemachineComponent<Cinemachine.CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = 0;
         }
 
         public void SetPause()

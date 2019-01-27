@@ -89,6 +89,8 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   _scoreStep: 10
+  _blockBuilder: {fileID: 0}
+  _camera: {fileID: 0}
 --- !u!114 &8507490089561171509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,5 +104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _combinationList:
-  - Pair1: {fileID: 21300000, guid: 1caa2003982891345bc9d0c19002d91f, type: 3}
-    Pair2: {fileID: 21300000, guid: 1caa2003982891345bc9d0c19002d91f, type: 3}
+  - Pair1: {fileID: 21300000, guid: 8fb833b9430f0554fa759b32a69d3238, type: 3}
+    Pair2: {fileID: 21300000, guid: c5016c09004928646b88caaa41c132b9, type: 3}
+  - Pair1: {fileID: 21300000, guid: 709bdf304e021aa4b9bc6bda66d7b057, type: 3}
+    Pair2: {fileID: 21300000, guid: ded6bbcb64ce1b54cbf3b10596252a16, type: 3}
