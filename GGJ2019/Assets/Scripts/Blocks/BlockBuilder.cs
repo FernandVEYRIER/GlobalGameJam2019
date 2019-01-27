@@ -16,6 +16,9 @@ namespace Assets.Scripts.Blocks
 
         private CombinedBlock _combinedBlockInstance;
 
+        [SerializeField]
+        private Animator _animator;
+
         private void Start()
         {
             CreateBlockInstance();
@@ -35,10 +38,16 @@ namespace Assets.Scripts.Blocks
 
         private void CheckCombination()
         {
-            if (_combinedBlockInstance.CheckCombination())
+            var res = _combinedBlockInstance.CheckCombination(out bool isNull);
+            if (res)
             {
+                _animator.SetTrigger("Good");
                 _constructionHandler.PushBlock(_combinedBlockInstance);
                 CreateBlockInstance();
+            }
+            else if (!isNull)
+            {
+                _animator.SetTrigger("Bad");
             }
         }
 

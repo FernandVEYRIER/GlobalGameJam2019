@@ -63,6 +63,17 @@ namespace Assets.Scripts.Blocks
             return GameManager.Instance.CheckCombination(_leftBlock, _rightBlock);
         }
 
+        public bool CheckCombination(out bool isNull)
+        {
+            if (_leftBlock == null || _rightBlock == null)
+            {
+                isNull = true;
+                return false;
+            }
+            isNull = false;
+            return GameManager.Instance.CheckCombination(_leftBlock, _rightBlock);
+        }
+
         public override float GetHeight()
         {
             return _leftBlock?.GetHeight() ?? 0 + _rightBlock?.GetHeight() ?? 0;

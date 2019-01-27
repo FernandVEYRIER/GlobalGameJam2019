@@ -20,9 +20,18 @@ namespace Assets.Scripts.Game
         {
             var spriteA = a.GetComponent<SpriteRenderer>().sprite;
             var spriteB = b.GetComponent<SpriteRenderer>().sprite;
-            Sprite pair = null;
-            var ret = Array.Find(_combinationList, x => (pair = x.GetPair(spriteA)) != null);
-            return pair == spriteB;
+
+            foreach (Pair pair in _combinationList)
+            {
+                Sprite pairSprite = pair.GetPair(spriteA);
+
+                if (pairSprite == spriteB)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 
