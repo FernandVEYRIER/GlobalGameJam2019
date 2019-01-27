@@ -8,6 +8,8 @@ public class MainMenu : MonoBehaviour
 
     public Animator P1Button;
     public Animator P2Button;
+    public AudioSource P1;
+    public AudioSource P2;
 
     private string[] buildInputs = new[] { "BuildP1", "BuildP2" };
     private string[] throwInputs = new[] { "ThrowP1", "ThrowP2" };
@@ -31,6 +33,8 @@ public class MainMenu : MonoBehaviour
         {
             P1Button.SetTrigger("Ready");
             p1Ready = !p1Ready;
+            if (p1Ready)
+                P1.Play();
         }
     }
 
@@ -40,6 +44,8 @@ public class MainMenu : MonoBehaviour
         {
             P2Button.SetTrigger("Ready");
             p2Ready = !p2Ready;
+            if (p2Ready)
+                P2.Play();
         }
     }
 }
