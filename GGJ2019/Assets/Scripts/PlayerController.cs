@@ -111,4 +111,9 @@ public class PlayerController : MonoBehaviour
         }
         _block = null;
     }
+
+    public void Throw()
+    {
+
+    }
 }
