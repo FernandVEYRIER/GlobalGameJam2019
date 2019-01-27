@@ -44,56 +44,6 @@ PrefabInstance:
       objectReference: {fileID: 9021547725519687902}
     - target: {fileID: 7923875952061781626, guid: 0383dce592fe60c428dcb9477017680e,
         type: 3}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7923875952061781626, guid: 0383dce592fe60c428dcb9477017680e,
-        type: 3}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].inSlope
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7923875952061781626, guid: 0383dce592fe60c428dcb9477017680e,
-        type: 3}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].outSlope
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7923875952061781626, guid: 0383dce592fe60c428dcb9477017680e,
-        type: 3}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].inWeight
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7923875952061781626, guid: 0383dce592fe60c428dcb9477017680e,
-        type: 3}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].outWeight
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7923875952061781626, guid: 0383dce592fe60c428dcb9477017680e,
-        type: 3}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].value
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7923875952061781626, guid: 0383dce592fe60c428dcb9477017680e,
-        type: 3}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].inSlope
-      value: -2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7923875952061781626, guid: 0383dce592fe60c428dcb9477017680e,
-        type: 3}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].inWeight
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7923875952061781626, guid: 0383dce592fe60c428dcb9477017680e,
-        type: 3}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].outWeight
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7923875952061781626, guid: 0383dce592fe60c428dcb9477017680e,
-        type: 3}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].outSlope
-      value: -2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7923875952061781626, guid: 0383dce592fe60c428dcb9477017680e,
-        type: 3}
       propertyPath: InitialModule.startSizeY.scalar
       value: 0.2
       objectReference: {fileID: 0}
