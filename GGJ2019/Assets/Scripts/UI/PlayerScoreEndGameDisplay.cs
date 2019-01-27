@@ -12,7 +12,7 @@ namespace Assets.Scripts.UI
         private void OnEnable()
         {
             StopAllCoroutines();
-            for (int i = 0; i < transform.childCount; ++i)
+            for (int i = 1; i < transform.childCount; ++i)
             {
                 Destroy(transform.GetChild(i).gameObject);
             }
@@ -21,32 +21,31 @@ namespace Assets.Scripts.UI
 
         private IEnumerator DisplayElementsCoroutine()
         {
+            //var go = Instantiate(_scoreItemPrefab);
+            //go.transform.SetParent(transform);
+            //go.transform.localScale = Vector3.one;
+            //go.GetComponent<PlayerScoreEndElement>().IsSeparator = false;
+            //go.GetComponent<PlayerScoreEndElement>().Text = "Player1 & Player2";
+            //yield return new WaitForSeconds(0.5f);
+
             var go = Instantiate(_scoreItemPrefab);
             go.transform.SetParent(transform);
             go.transform.localScale = Vector3.one;
             go.GetComponent<PlayerScoreEndElement>().IsSeparator = false;
-            go.GetComponent<PlayerScoreEndElement>().Text = "Player1 & Player2";
-            yield return new WaitForSeconds(1);
-
-            go = Instantiate(_scoreItemPrefab);
-            go.transform.SetParent(transform);
-            go.transform.localScale = Vector3.one;
-            go.GetComponent<PlayerScoreEndElement>().IsSeparator = false;
             go.GetComponent<PlayerScoreEndElement>().Text = ((int)GameManager.Instance.ConstructionHandler.GetBlockTotalHeight()).ToString() + " meters x1000";
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(0.5f);
 
             go = Instantiate(_scoreItemPrefab);
             go.transform.SetParent(transform);
             go.transform.localScale = Vector3.one;
             go.GetComponent<PlayerScoreEndElement>().IsSeparator = false;
             go.GetComponent<PlayerScoreEndElement>().Text = ((int)GameManager.Instance.ScoreHandler.Score).ToString() + " pts";
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(0.5f);
 
             go = Instantiate(_scoreItemPrefab);
             go.transform.SetParent(transform);
             go.transform.localScale = Vector3.one;
             go.GetComponent<PlayerScoreEndElement>().IsSeparator = true;
-            yield return new WaitForSeconds(1);
 
             go = Instantiate(_scoreItemPrefab);
             go.transform.SetParent(transform);
