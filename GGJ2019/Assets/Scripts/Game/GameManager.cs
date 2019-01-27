@@ -111,7 +111,7 @@ namespace Assets.Scripts.Game
                 if (_timer > 0)
                 {
                     _timer -= Time.deltaTime;
-                    if (_timer <= 9f && isOver == false)
+                    if (_timer <= 10f && isOver == false)
                     {
                         isOver = true;
                         OnTimerCloseToFinish.Invoke();
@@ -136,6 +136,8 @@ namespace Assets.Scripts.Game
                 a.transform.GetChild(0).GetComponent<ParticleSystem>().Play();
                 b.transform.GetChild(0).GetComponent<ParticleSystem>().Play();
                 ScoreHandler.SetPositiveAction(true);
+                GetComponent<AudioSource>().Play();
+                print("PLLLLLLLLLLAY");
                 return true;
             }
             else

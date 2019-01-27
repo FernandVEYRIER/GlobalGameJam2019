@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Assets.Scripts.Blocks
 {
@@ -56,6 +57,7 @@ namespace Assets.Scripts.Blocks
             _blocks.Add(block);
             if (_blocks.Count % _width == 0)
             {
+                GetComponent<AudioSource>().Play();
                 _height += block.GetHeight();
             }
             return _blocks.Count;

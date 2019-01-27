@@ -108,6 +108,7 @@ public class PlayerController : MonoBehaviour
     public void Kick()
     {
         _isKicking = true;
+        GetComponent<AudioSource>().Play();
     }
 
     public void EndKick()
@@ -127,6 +128,7 @@ public class PlayerController : MonoBehaviour
     public void Throw()
     {
         _isKicking = false;
+        GetComponent<AudioSource>().Play();
         var rb = _block.GetComponent<Rigidbody2D>();
         _block.GetComponent<Collider2D>().enabled = true;
         rb.bodyType = RigidbodyType2D.Dynamic;
