@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityTools.SceneManagement;
 
 namespace Assets.Scripts.Game
 {
@@ -52,7 +53,7 @@ namespace Assets.Scripts.Game
 
         public void Quit()
         {
-            Debug.LogError("Should load to main menu");
+            SceneManager.Instance.LoadPreviousLevel();
         }
     }
 }
