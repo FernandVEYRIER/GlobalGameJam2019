@@ -596,18 +596,18 @@ MonoBehaviour:
     name: 
     sentences:
     - Hello Cons!
-    - Hy Struct!
-    - I Have nice news for you, today i gonna to build the heighest house of this
-      city, but for this i need your help!
-    - What can i do for you, bro :)
-    - To build a house we have to create some brik, and for that we need to block
+    - Hi Struct!
+    - I have nice news for you, today I'm gonna to build the highest house of this
+      city, but for this I need your help!
+    - What can I do for you, bro :)
+    - To build a house we have to create some bricks, and for that we need two blocks
       that fit together. As you can see above.
-    - Hum, ok i see so i just to push "RB" right?
-    - Exactelly, and when the blocks doesn't fit, you can throw them away with "LB".
-    - Ok, i think i got it!
-    - One last thing too, if you are the player of the right your command are invert
-      so you can build and throw cube with, "LB" and "RB" respec0tively.
-    - Ok nice, let kick some block!!!
+    - Hum, ok I see so I just need to push "RB" right?
+    - Exactly, and when the blocks don't fit, you can throw them away with "LB".
+    - Ok, I think I got it!
+    - One last thing too, if you are the player of the right your commands are inverted
+      so you can build and throw cubes with "LB" and "RB" respectively.
+    - Ok nice, let's kick some blocks!!!
 --- !u!4 &1867033580
 Transform:
   m_ObjectHideFlags: 0
