@@ -146,3 +146,4 @@ MonoBehaviour:
   _combinedBlockPrefab: {fileID: 8110768085367764720, guid: b8571bb6dabc36a4e99c8c284ab38b71,
     type: 3}
   _constructionHandler: {fileID: 0}
+  _animator: {fileID: 3203270969404179261}
