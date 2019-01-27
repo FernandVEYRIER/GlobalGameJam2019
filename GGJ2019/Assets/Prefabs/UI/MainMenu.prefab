@@ -92,6 +92,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   P1Button: {fileID: 5390678596698529085}
   P2Button: {fileID: 5007574124740606418}
+  P1: {fileID: 0}
+  P2: {fileID: 0}
 --- !u!1 &5210553615473267621
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,6 +236,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayButtonP2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981130587619029290, guid: 6212c3459cdc8994b84ed4829e7b6bf3,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4711398168609800533, guid: 6212c3459cdc8994b84ed4829e7b6bf3,
         type: 3}
@@ -401,11 +408,6 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7981130587619029290, guid: 6212c3459cdc8994b84ed4829e7b6bf3,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7575308165095559365, guid: 6212c3459cdc8994b84ed4829e7b6bf3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6212c3459cdc8994b84ed4829e7b6bf3, type: 3}
@@ -428,6 +430,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2839808078972796988}
     m_Modifications:
+    - target: {fileID: 2078903814777103081, guid: 00f1247c94a777542aea0d4687e2f19a,
+        type: 3}
+      propertyPath: m_Name
+      value: PlayButtonP1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3459540229925423284, guid: 00f1247c94a777542aea0d4687e2f19a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4711398168609800533, guid: 00f1247c94a777542aea0d4687e2f19a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -532,16 +544,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3459540229925423284, guid: 00f1247c94a777542aea0d4687e2f19a,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2078903814777103081, guid: 00f1247c94a777542aea0d4687e2f19a,
-        type: 3}
-      propertyPath: m_Name
-      value: PlayButtonP1
       objectReference: {fileID: 0}
     - target: {fileID: 2699529488903489992, guid: 00f1247c94a777542aea0d4687e2f19a,
         type: 3}

@@ -31,3 +31,7 @@ MonoBehaviour:
           Build: 1
           Enable: 1
           PriorityLevel: 2
+        - Collection: {fileID: 11400000, guid: fb12c9ed0ae94b54d8ee2b590fb4464f, type: 2}
+          Build: 1
+          Enable: 1
+          PriorityLevel: 2

@@ -48,4 +48,9 @@ public class MainMenu : MonoBehaviour
                 P2.Play();
         }
     }
+
+    public void OpenCredits()
+    {
+        SceneManager.Instance.LoadLevelIndex(2);
+    }
 }

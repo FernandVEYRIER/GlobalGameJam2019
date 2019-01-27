@@ -7,7 +7,7 @@ namespace Assets.Scripts.UI
     {
         public void LoadMainMenu()
         {
-            SceneManager.Instance.LoadPreviousLevel();
+            SceneManager.Instance.LoadLevelIndex(0);
         }
     }
 }
