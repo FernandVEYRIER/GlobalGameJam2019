@@ -95,8 +95,9 @@ MonoBehaviour:
       m_RotationOrder: 4
   _scoreStep: 10
   _blockBuilder: {fileID: 0}
+  _constructionHandler: {fileID: 0}
   _camera: {fileID: 0}
-  _timer: 180
+  _timer: 10
 --- !u!114 &8507490089561171509
 MonoBehaviour:
   m_ObjectHideFlags: 0

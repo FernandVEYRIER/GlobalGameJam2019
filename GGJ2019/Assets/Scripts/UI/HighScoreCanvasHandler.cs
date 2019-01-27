@@ -21,6 +21,7 @@ namespace Assets.Scripts.UI
         {
             var scores = DataSaver.GetValue<List<ScoreItem>>("Scores") ?? new List<ScoreItem>();
 
+            scores.Sort((x, y) => y.Score.CompareTo(x.Score));
             _scores.ForEach(x => Destroy(x));
             _scores.Clear();
             for (int i = 0; i < scores.Count; i++)
