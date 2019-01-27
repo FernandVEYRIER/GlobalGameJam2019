@@ -16,6 +16,9 @@ namespace Assets.Scripts.Blocks
         [SerializeField]
         private int _blockScale = 1;
 
+        [SerializeField]
+        private float _buildingOffsetHorizontal = 0;
+
         private Vector3 _startPosition;
 
         private float _height = 0;
@@ -40,10 +43,10 @@ namespace Assets.Scripts.Blocks
             block.transform.SetParent(transform);
             for (int i = 0; i < block.transform.childCount; ++i)
             {
-                block.transform.GetChild(i).transform.localScale = Vector3.one;
+                block.transform.GetChild(i).transform.localScale = Vector3.one * _blockScale;
             }
             block.SetBlockPosition(new Vector3(
-                /*_startPosition.x +*/ (block.GetWidth() * (_blocks.Count % _width)),
+                /*_startPosition.x +*/_buildingOffsetHorizontal + (block.GetWidth() * (_blocks.Count % _width)),
                 /*_startPosition.y +*/ (block.GetHeight() * (_blocks.Count / _width)),
                 _startPosition.z));
             //block.transform.localPosition = new Vector3(
