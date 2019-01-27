@@ -2,6 +2,7 @@
 using Assets.Scripts.Data;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -33,6 +34,8 @@ namespace Assets.Scripts.Game
                 }
             }
         }
+
+        public int TotalScore { get; private set; }
 
         public float Timer => _timer;
 
@@ -78,6 +81,17 @@ namespace Assets.Scripts.Game
         private void Start()
         {
             OnTimerFinished.AddListener(() => GameState = State.GAME_OVER);
+            OnGameStateChange += (e, v) =>
+            {
+                if (v.Current == State.GAME_OVER)
+                {
+                    TotalScore = (int)(ScoreHandler.Score + ConstructionHandler.GetBlockTotalHeight() * 1000);
+                    var scores = DataSaver.GetValue<List<UI.ScoreItem>>("Scores");
+                    scores.Add(new UI.ScoreItem { Name = "Player1 & Player2", Score = TotalScore });
+                    DataSaver.SetValue("Scores", scores);
+                    DataSaver.SaveData();
+                }
+            };
         }
 
         private void Update()

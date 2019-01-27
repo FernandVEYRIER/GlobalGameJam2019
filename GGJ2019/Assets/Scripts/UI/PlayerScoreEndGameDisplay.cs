@@ -53,7 +53,7 @@ namespace Assets.Scripts.UI
             go.transform.localScale = Vector3.one;
             go.GetComponent<PlayerScoreEndElement>().IsSeparator = false;
             go.GetComponent<PlayerScoreEndElement>().Text = "Total: "
-                + ((int)GameManager.Instance.ScoreHandler.Score + (int)GameManager.Instance.ConstructionHandler.GetBlockTotalHeight() * 1000).ToString()
+                + GameManager.Instance.TotalScore.ToString()
                 + " pts";
         }
     }
