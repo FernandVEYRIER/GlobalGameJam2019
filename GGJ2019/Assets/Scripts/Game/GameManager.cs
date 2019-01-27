@@ -100,6 +100,8 @@ namespace Assets.Scripts.Game
         {
             if (_blockCombination.CheckPair(a, b))
             {
+                a.transform.GetChild(0).GetComponent<ParticleSystem>().Play();
+                b.transform.GetChild(0).GetComponent<ParticleSystem>().Play();
                 ScoreHandler.SetPositiveAction(true);
                 return true;
             }
