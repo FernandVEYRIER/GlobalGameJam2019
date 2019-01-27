@@ -1583,6 +1583,10 @@ MonoBehaviour:
   prefabs:
   - {fileID: 5660970530666350600, guid: 1aea11a8f66dba04db6bbe62edc57ccd, type: 3}
   - {fileID: 1043566415558218909, guid: d04469f70bb694246b2d82fb796dd572, type: 3}
+  - {fileID: 3637468343635380085, guid: 3ba82c6e403a96947849760decf9b521, type: 3}
+  - {fileID: 4548574993917440226, guid: 581fe54516095ce47aa7153c8abebe58, type: 3}
+  - {fileID: 5306938317757158076, guid: 2624d2360daa8ac4ea4ca9770def44c6, type: 3}
+  - {fileID: 1626143959754162849, guid: 2672d046fee135b44ae37d963e5bd669, type: 3}
   blockPath: {fileID: 4978645515095188495}
   blockSpeed: 50
   angularSpeed: 3000
