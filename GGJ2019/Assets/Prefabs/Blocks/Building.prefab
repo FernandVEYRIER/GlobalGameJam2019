@@ -44,9 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 358b02efdaa071f44ae8aab8465ec965, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _width: 4
+  _width: 3
   _blockScale: 1
-  _buildingOffsetHorizontal: -1.7
+  _buildingOffsetHorizontal: -1.1
 --- !u!114 &7440571821292130598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,5 +63,5 @@ MonoBehaviour:
   _heightDisplayPrefab: {fileID: 7554565790392642210, guid: bac445dddcd19c94d97e7a496cc4725a,
     type: 3}
   _smoothTime: 0.3
-  _heightStep: 10
-  _heightForwardCount: 3
+  _heightStep: 3
+  _heightForwardCount: 10
