@@ -44,5 +44,15 @@ namespace Assets.Scripts.Game
         {
             GameManager.Instance.OnGameStateChange -= Instance_OnGameStateChange;
         }
+
+        public void Resume()
+        {
+            GameManager.Instance.SetPause();
+        }
+
+        public void Quit()
+        {
+            Debug.LogError("Should load to main menu");
+        }
     }
 }

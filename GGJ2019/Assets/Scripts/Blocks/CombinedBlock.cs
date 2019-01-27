@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Game;
+using System.Collections;
 using UnityEngine;
 
 namespace Assets.Scripts.Blocks
@@ -14,9 +15,23 @@ namespace Assets.Scripts.Blocks
         private Vector3 _target;
         private bool _isTargetSet;
 
+        [SerializeField]
+        private float _blockMoveSpeed = 1f;
+
+        [SerializeField]
+        private Animator _animator;
+
+        [SerializeField]
+        private ParticleSystem _particleSystem;
+
+        private float currTime;
+        private Vector3 startPos;
+
         private void Start()
         {
             startPos = transform.position;
+            var em = _particleSystem.emission;
+            em.enabled = false;
         }
 
         public void PushBlockLeft(ABlock block)
@@ -55,15 +70,60 @@ namespace Assets.Scripts.Blocks
             startPos = transform.localPosition;
             _target = pos;
             _isTargetSet = true;
+            StartCoroutine(FadeCoroutine(true));
         }
-
-        private float currTime;
-        private Vector3 startPos;
 
         public void Update()
         {
             if (_isTargetSet)
-                transform.localPosition = Vector3.Lerp(startPos, _target, currTime += Time.deltaTime / 1.3f);
+            {
+                transform.localPosition = Vector3.Lerp(startPos, _target, currTime += Time.deltaTime * _blockMoveSpeed);
+                if (Vector3.Distance(transform.localPosition, _target) <= 0.01f)
+                {
+                    StartCoroutine(FadeCoroutine(false));
+                    _isTargetSet = false;
+                    transform.localPosition = _target;
+                }
+            }
+        }
+
+        private IEnumerator FadeCoroutine(bool fadeOut)
+        {
+            if (fadeOut)
+            {
+                var em = _particleSystem.emission;
+                em.enabled = true;
+                //for (float i = 1; i >= 0; i -= 1f)
+                //{
+                //    foreach (var sprite in GetComponentsInChildren<SpriteRenderer>())
+                //    {
+                //        sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, i);
+                //    }
+                //    yield return new WaitForSeconds(0.01f);
+                //}
+                foreach (var sprite in GetComponentsInChildren<SpriteRenderer>())
+                {
+                    sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, 0);
+                }
+            }
+            else
+            {
+                var em = _particleSystem.emission;
+                em.enabled = false;
+                for (float i = 0; i <= 1; i += 0.1f)
+                {
+                    if (i > 1) i = 1;
+                    foreach (var sprite in GetComponentsInChildren<SpriteRenderer>())
+                    {
+                        sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, i);
+                    }
+                    yield return new WaitForSeconds(0.01f);
+                }
+                foreach (var sprite in GetComponentsInChildren<SpriteRenderer>())
+                {
+                    sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, 1);
+                }
+            }
         }
     }
 }

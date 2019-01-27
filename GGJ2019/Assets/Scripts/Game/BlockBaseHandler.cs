@@ -13,14 +13,17 @@ namespace Assets.Scripts.Game
         private GameObject _heightDisplayPrefab;
 
         private Vector3 _target;
+        private Vector3 _offset;
 
         [SerializeField]
         private float _smoothTime = 0.3f;
 
         [SerializeField]
         private int _heightStep = 10;
+
         [SerializeField]
         private int _heightForwardCount = 3;
+
         private int _lastHeightGenerated;
 
         private Vector3 _vel;
@@ -28,10 +31,13 @@ namespace Assets.Scripts.Game
         private void Awake()
         {
             _target = transform.position;
+            _offset = transform.position;
         }
 
         private void Start()
         {
+            _target = transform.position;
+            _offset = transform.position;
             SpawnHeightDisplay();
         }
 
@@ -39,7 +45,7 @@ namespace Assets.Scripts.Game
         {
             if (GameManager.Instance.GameState == GameManager.State.PLAY)
             {
-                _target.y = -_constructionHandler.GetBlockTotalHeight();
+                _target.y = -_constructionHandler.GetBlockTotalHeight() + _offset.y;
                 transform.position = Vector3.SmoothDamp(transform.position, _target, ref _vel, _smoothTime);
 
                 if ((int)_constructionHandler.GetBlockTotalHeight() >= _lastHeightGenerated - _heightStep)

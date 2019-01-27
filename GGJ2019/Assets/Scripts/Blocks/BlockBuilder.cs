@@ -16,23 +16,9 @@ namespace Assets.Scripts.Blocks
 
         private CombinedBlock _combinedBlockInstance;
 
-        public ABlock prefab;
-
         private void Start()
         {
             CreateBlockInstance();
-        }
-
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.G))
-            {
-                PushBlockLeft(Instantiate(prefab));
-            }
-            if (Input.GetKeyDown(KeyCode.H))
-            {
-                PushBlockRight(Instantiate(prefab));
-            }
         }
 
         public void PushBlockLeft(ABlock block)
