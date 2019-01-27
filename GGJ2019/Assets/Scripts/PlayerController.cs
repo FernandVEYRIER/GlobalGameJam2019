@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     public float kickSpeed = 10f;
 
     public Transform targetKick;
+    public PointEffector2D ThrowObject;
 
     private BlockBuilder _blockBuilder;
     //public 
@@ -36,6 +37,7 @@ public class PlayerController : MonoBehaviour
     private ABlock _block;
 
     private bool _isKicking;
+    private bool _isAnim;
 
     private Vector3 _finalScale;
     // Start is called before the first frame update
@@ -61,14 +63,14 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_isKicking == false)
+        if (_isKicking == false && _isAnim == false)
         {
-            if (Input.GetButtonDown(throwInputs[_playerID]))
+            if (Input.GetButtonDown(throwInputs[_playerID]) && spawner.CanTake())
             {
                 _block = spawner.TakeBlock();
                 _animator.SetTrigger("Throw");
             }
-            else if (Input.GetButtonDown(buildInputs[_playerID]))
+            else if (Input.GetButtonDown(buildInputs[_playerID]) && spawner.CanTake())
             {
                 _block = spawner.TakeBlock();
                 _animator.SetTrigger("Build");
@@ -82,7 +84,7 @@ public class PlayerController : MonoBehaviour
                     spawner.blockSpeed * Time.deltaTime * 2);
             }
         }
-        else
+        else if (_isKicking)
         {
             if (_block)
             {
@@ -91,6 +93,16 @@ public class PlayerController : MonoBehaviour
                 _block.transform.localScale = Vector3.Slerp(_block.transform.localScale, _finalScale, kickSpeed * Time.deltaTime);
             }
         }
+    }
+
+    public void StartAnim()
+    {
+        _isAnim = true;
+    }
+
+    public void EndAnim()
+    {
+        _isAnim = false;
     }
 
     public void Kick()
@@ -114,6 +126,11 @@ public class PlayerController : MonoBehaviour
 
     public void Throw()
     {
-
+        _isKicking = false;
+        var rb = _block.GetComponent<Rigidbody2D>();
+        _block.GetComponent<Collider2D>().enabled = true;
+        rb.bodyType = RigidbodyType2D.Dynamic;
+        rb.AddTorque(100f, ForceMode2D.Impulse);
+        _block = null;
     }
 }

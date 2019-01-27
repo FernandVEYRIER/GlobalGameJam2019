@@ -70,7 +70,7 @@ public class Spawner : MonoBehaviour
             blockSpeed * Time.deltaTime);
         block.transform.rotation =
             Quaternion.RotateTowards(block.transform.rotation, point.rotation, angularSpeed * Time.deltaTime);
-        if (Vector3.Distance(block.transform.position, point.position) < 0.001f)
+        if (Vector3.Distance(block.transform.position, point.position) < 0.0001f)
             ++block.currentID;
     }
 
@@ -102,9 +102,13 @@ public class Spawner : MonoBehaviour
         return block;
     }
 
+    public bool CanTake()
+    {
+        return m_path.Count == m_blockQueue.Count && Vector3.Distance(m_blockQueue[0].transform.position, m_path[m_path.Count - 1].position) < 0.0001f;
+    }
+
     public ABlock TakeBlock()
     {
-        if (m_isInit > 0 || m_blockQueue[0].currentID == m_path.Count) return null;
         blockSpeed = m_slowSpeed;
         var block = m_blockQueue[0];
         m_blockQueue.RemoveAt(0);
