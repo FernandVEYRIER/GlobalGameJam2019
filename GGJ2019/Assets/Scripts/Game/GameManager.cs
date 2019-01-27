@@ -21,6 +21,7 @@ namespace Assets.Scripts.Game
         public event EventHandler<GameEventArgs> OnGameStateChange;
 
         public UnityEvent OnTimerFinished;
+        public UnityEvent OnTimerCloseToFinish;
 
         public State GameState
         {
@@ -66,6 +67,8 @@ namespace Assets.Scripts.Game
         [SerializeField]
         private float _timer = 90f;
 
+        private bool isOver = false;
+
         private void Awake()
         {
             if (Instance != null)
@@ -108,6 +111,11 @@ namespace Assets.Scripts.Game
                 if (_timer > 0)
                 {
                     _timer -= Time.deltaTime;
+                    if (_timer <= 9f && isOver == false)
+                    {
+                        isOver = true;
+                        OnTimerCloseToFinish.Invoke();
+                    }
                     if (_timer <= 0f)
                     {
                         _timer = 0f;
