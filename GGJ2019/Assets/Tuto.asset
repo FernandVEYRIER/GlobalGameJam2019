@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf15d1adbf6f38f49854796d577a4d77, type: 3}
-  m_Name: MainMenu
+  m_Name: Tuto
   m_EditorClassIdentifier: 
   Expand: 0
-  CollectionName: MainMenu
+  CollectionName: Tuto
   SceneReferences:
-  - Assets/Scenes/MainMenu.unity
+  - Assets/Scenes/Tutorial.unity
   TransitionScene:
     Mode: 1
     In:
@@ -69,4 +69,4 @@ MonoBehaviour:
     scenePath: Assets/Scenes/Loading.unity
     Scene: {fileID: 102900000, guid: 30b5bf065c40bd8409011a3e9a9ee39e, type: 3}
   SceneAssets:
-  - {fileID: 102900000, guid: a1d2f0347cc07ba4a9d47efe31e92bb0, type: 3}
+  - {fileID: 102900000, guid: 6399a59feb61cee40bacc9e66a5d7b18, type: 3}

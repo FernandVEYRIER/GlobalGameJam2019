@@ -57,7 +57,7 @@ namespace UnityTools
             // ReSharper disable once UnusedMember.Local
             private IEnumerator LoadAsyncLevel(LevelScene level)
             {
-
+                print(level.Collection.SceneReferences[0]);
                 if (m_LastLevel != null && level != m_LastLevel)
                 {
                     if (m_LastLevel.Collection.TransitionScene.scenePath != "")

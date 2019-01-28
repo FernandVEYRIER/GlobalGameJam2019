@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 091e009b19963c64c94a0249b79a7671, type: 3}
-  m_Name: SceneLoaderProfile
+  m_Name: SceneLoaderProfile 1
   m_EditorClassIdentifier: 
   SceneStatesModel:
     m_Enabled: 0

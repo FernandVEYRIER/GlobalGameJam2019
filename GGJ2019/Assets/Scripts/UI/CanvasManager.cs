@@ -54,7 +54,12 @@ namespace Assets.Scripts.Game
         public void Quit()
         {
             Time.timeScale = 1;
-            SceneManager.Instance.LoadPreviousLevel();
+            SceneManager.Instance.LoadLevelIndex(0);
+        }
+
+        public void QuitGame()
+        {
+            Application.Quit();
         }
     }
 }

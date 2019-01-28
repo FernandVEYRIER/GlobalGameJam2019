@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityTools.SceneManagement;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -54,7 +55,7 @@ public class DialogueManager : MonoBehaviour
 
     private void EndDialogue()
     {
-        Debug.Log("This is the end");
+        SceneManager.Instance.LoadNextLevel();
     }
 
     void Update()

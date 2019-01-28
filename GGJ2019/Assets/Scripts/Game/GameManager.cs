@@ -10,6 +10,9 @@ namespace Assets.Scripts.Game
 {
     public class GameManager : MonoBehaviour
     {
+        public AudioClip success;
+        public AudioClip fail;
+
         public enum State { COUNTDOWN, PLAY, PAUSE, GAME_OVER }
 
         public ScoreHandler ScoreHandler => _scoreHandler;
@@ -132,8 +135,9 @@ namespace Assets.Scripts.Game
                 a.transform.GetChild(0).GetComponent<ParticleSystem>().Play();
                 b.transform.GetChild(0).GetComponent<ParticleSystem>().Play();
                 ScoreHandler.SetPositiveAction(true);
-                GetComponent<AudioSource>().Play();
-                print("PLLLLLLLLLLAY");
+                var audio = GetComponent<AudioSource>();
+                audio.clip = success;
+                audio.Play();
                 return true;
             }
             else
@@ -143,6 +147,9 @@ namespace Assets.Scripts.Game
                 StartCoroutine(CameraShake(0.75f));
                 a.DestroyBlock();
                 b.DestroyBlock();
+                var audio = GetComponent<AudioSource>();
+                audio.clip = fail;
+                audio.Play();
                 return false;
             }
         }

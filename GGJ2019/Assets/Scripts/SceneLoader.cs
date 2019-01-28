@@ -15,4 +15,10 @@ public class SceneLoader : MonoBehaviour
     {
         SceneManager.Instance.LoadNextLevel();
     }
+
+    public void LoadMainMenu()
+    {
+        SceneManager.Instance.LoadLevelIndex(0);
+
+    }
 }

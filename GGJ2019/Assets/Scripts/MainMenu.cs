@@ -16,6 +16,7 @@ public class MainMenu : MonoBehaviour
     private bool p1Ready = false;
     private bool p2Ready = false;
 
+    private bool isLoding = false;
     // Start is called before the first frame update
 
     // Update is called once per frame
@@ -23,34 +24,43 @@ public class MainMenu : MonoBehaviour
     {
         CheckP1();
         CheckP2();
-        if (p1Ready && p2Ready)
-            SceneManager.Instance.LoadNextLevel();
     }
 
     void CheckP1()
     {
-        if (Input.GetButtonDown(buildInputs[0]))
+        if (Input.GetButtonDown(buildInputs[0]) && isLoding == false)
         {
             P1Button.SetTrigger("Ready");
             p1Ready = !p1Ready;
             if (p1Ready)
                 P1.Play();
+            if (p1Ready && p2Ready)
+
+            {
+                isLoding = true;
+                SceneManager.Instance.LoadNextLevel();
+            }
         }
     }
 
     void CheckP2()
     {
-        if (Input.GetButtonDown(buildInputs[1]))
+        if (Input.GetButtonDown(buildInputs[1]) && isLoding == false)
         {
             P2Button.SetTrigger("Ready");
             p2Ready = !p2Ready;
             if (p2Ready)
                 P2.Play();
+            if (p1Ready && p2Ready)
+            {
+                isLoding = true;
+                SceneManager.Instance.LoadNextLevel();
+            }
         }
     }
 
     public void OpenCredits()
     {
-        SceneManager.Instance.LoadLevelIndex(2);
+        SceneManager.Instance.LoadLevelIndex(3);
     }
 }
