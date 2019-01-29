@@ -1152,7 +1152,7 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
@@ -1637,7 +1637,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2629823280515299951}
   m_HandleRect: {fileID: 2629823280515299944}
   m_Direction: 0
-  m_Value: 1
+  m_Value: 0.5
   m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -1916,8 +1916,8 @@ RectTransform:
   - {fileID: 2629823281890628552}
   - {fileID: 9173974644122586329}
   - {fileID: 3942664426102404383}
-  - {fileID: 6604869864793478963}
   - {fileID: 4952650759748707040}
+  - {fileID: 6604869864793478963}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2233,7 +2233,7 @@ RectTransform:
   - {fileID: 8987744668148072905}
   - {fileID: 3946956153124938920}
   m_Father: {fileID: 2629823281971855010}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -3052,7 +3052,7 @@ RectTransform:
   - {fileID: 117483092310246338}
   - {fileID: 5152593987956081816}
   m_Father: {fileID: 2629823281971855010}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}

@@ -7,17 +7,61 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1940024000303755561, guid: 2d777de23c3247e4c990710f475e93ce,
+        type: 3}
+      propertyPath: colorMax.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1940024000303755561, guid: 2d777de23c3247e4c990710f475e93ce,
+        type: 3}
+      propertyPath: colorMax.g
+      value: 0.09803922
+      objectReference: {fileID: 0}
+    - target: {fileID: 1940024000303755561, guid: 2d777de23c3247e4c990710f475e93ce,
+        type: 3}
+      propertyPath: colorMax.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1940024000303755561, guid: 2d777de23c3247e4c990710f475e93ce,
+        type: 3}
+      propertyPath: colorMin.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1940024000303755561, guid: 2d777de23c3247e4c990710f475e93ce,
+        type: 3}
+      propertyPath: colorMin.g
+      value: 0.76470596
+      objectReference: {fileID: 0}
+    - target: {fileID: 1940024000303755561, guid: 2d777de23c3247e4c990710f475e93ce,
+        type: 3}
+      propertyPath: colorMin.b
+      value: 0.18039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 1940024000303755561, guid: 2d777de23c3247e4c990710f475e93ce,
+        type: 3}
+      propertyPath: colorMin.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8710917426716275719, guid: 2d777de23c3247e4c990710f475e93ce,
         type: 3}
       propertyPath: m_Name
       value: R_YellowCircleBlock
       objectReference: {fileID: 0}
-    - target: {fileID: 5104201641212218952, guid: 2d777de23c3247e4c990710f475e93ce,
+    - target: {fileID: 5965685363530151011, guid: 2d777de23c3247e4c990710f475e93ce,
         type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 0b818b00f96ca9e42a8089499570f8f1,
+      propertyPath: m_Offset.x
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 5965685363530151011, guid: 2d777de23c3247e4c990710f475e93ce,
         type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 2.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 5965685363530151011, guid: 2d777de23c3247e4c990710f475e93ce,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 1.28
+      objectReference: {fileID: 0}
     - target: {fileID: 8477629970317608772, guid: 2d777de23c3247e4c990710f475e93ce,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -94,21 +138,12 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5965685363530151011, guid: 2d777de23c3247e4c990710f475e93ce,
+    - target: {fileID: 5104201641212218952, guid: 2d777de23c3247e4c990710f475e93ce,
         type: 3}
-      propertyPath: m_Offset.x
-      value: 0.32
-      objectReference: {fileID: 0}
-    - target: {fileID: 5965685363530151011, guid: 2d777de23c3247e4c990710f475e93ce,
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0b818b00f96ca9e42a8089499570f8f1,
         type: 3}
-      propertyPath: m_SpriteTilingProperty.newSize.x
-      value: 2.56
-      objectReference: {fileID: 0}
-    - target: {fileID: 5965685363530151011, guid: 2d777de23c3247e4c990710f475e93ce,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.newSize.y
-      value: 1.28
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d777de23c3247e4c990710f475e93ce, type: 3}
 --- !u!4 &4743796304577593114 stripped
@@ -187,12 +222,12 @@ PrefabInstance:
     - target: {fileID: 7923875952061781626, guid: 0383dce592fe60c428dcb9477017680e,
         type: 3}
       propertyPath: InitialModule.startSpeed.minScalar
-      value: -2
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 7923875952061781626, guid: 0383dce592fe60c428dcb9477017680e,
         type: 3}
       propertyPath: InitialModule.startSpeed.scalar
-      value: -8
+      value: -16
       objectReference: {fileID: 0}
     - target: {fileID: 7923875952061781626, guid: 0383dce592fe60c428dcb9477017680e,
         type: 3}

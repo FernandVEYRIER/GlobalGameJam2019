@@ -986,6 +986,11 @@ MonoBehaviour:
   spawner: {fileID: 4791203364928206721}
   kickScale: 50
   kickSpeed: 40
+  kickEffect: {fileID: 45581716891827657, guid: 21bc722caf6f16444832f54fae67ac84,
+    type: 3}
+  kickEffectInvert: {fileID: 0}
+  kickEffetOrigin: {fileID: 0}
+  throwEffetOrigin: {fileID: 0}
   targetKick: {fileID: 7713207708827409230}
   ThrowObject: {fileID: 0}
 --- !u!82 &3111159944828447948
@@ -997,9 +1002,10 @@ AudioSource:
   m_GameObject: {fileID: 4308706719386446592}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243158381602913488, guid: 253ee5b54c4e01f449e1c53e81049ba5,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: a722b2a7eaf7401479478fa1a0b18f65, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

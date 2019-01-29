@@ -57,7 +57,6 @@ namespace UnityTools
             // ReSharper disable once UnusedMember.Local
             private IEnumerator LoadAsyncLevel(LevelScene level)
             {
-                print(level.Collection.SceneReferences[0]);
                 if (m_LastLevel != null && level != m_LastLevel)
                 {
                     if (m_LastLevel.Collection.TransitionScene.scenePath != "")
@@ -78,8 +77,9 @@ namespace UnityTools
                                 float value = transition.In.Evaluate(time);
                                 TransitionInEvent.Invoke(value);
                                 time += Time.deltaTime;
-                                yield return new WaitForEndOfFrame();
+                                yield return 0;
                             }
+                            TransitionInEvent.Invoke(transition.In.Evaluate(transition.In.length - 1));
                         }
                     }
                     UnloadLevel(m_LastLevel);
@@ -92,9 +92,9 @@ namespace UnityTools
                     var async = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(levelScene, LoadSceneMode.Additive);
                     while (!async.isDone)
                     {
-                        percent += Mathf.Clamp01(async.progress / .9f);
-                        LoadingEvent.Invoke(percent / chunck);
-                        yield return null;
+                        percent = Mathf.Clamp01(async.progress / .9f);
+                        LoadingEvent.Invoke((percent + i) / chunck);
+                        yield return 0;
                     }
                 }
                 LoadingEvent.Invoke(1);
@@ -104,7 +104,7 @@ namespace UnityTools
                     if (transition.Mode == SceneCollection.TransitionSceneSettings.TransitionMode.Curve)
                     {
                         float time = 0;
-                        float max = transition.In.keys[transition.Out.length - 1].time;
+                        float max = transition.Out.keys[transition.Out.length - 1].time;
                         while (time < max)
                         {
                             float value = transition.Out.Evaluate(time);
@@ -275,7 +275,6 @@ namespace UnityTools
                 if (m_LevelCollectionEditor == null || m_LevelCollectionEditor.Count == 0 || m_CurrentLevel < 0 || m_CurrentLevel > m_LevelCollectionEditor.Count - 1)
                     return;
                 m_CurrentLevel = idx;
-                Debug.Log(m_CurrentLevel);
                 LoadLevel(m_LevelCollectionEditor[m_CurrentLevel]);
             }
 

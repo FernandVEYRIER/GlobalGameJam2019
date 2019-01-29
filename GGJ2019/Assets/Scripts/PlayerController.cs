@@ -23,6 +23,11 @@ public class PlayerController : MonoBehaviour
 
     public float kickSpeed = 10f;
 
+    public GameObject kickEffect;
+    public GameObject kickEffectInvert;
+    public Transform kickEffetOrigin;
+    public Transform throwEffetOrigin;
+
     public Transform targetKick;
     public PointEffector2D ThrowObject;
 
@@ -112,6 +117,8 @@ public class PlayerController : MonoBehaviour
     {
         _isKicking = true;
         GetComponent<AudioSource>().Play();
+        var obj = Instantiate(playerID == Player.P1 ? kickEffectInvert : kickEffect, kickEffetOrigin.position, Quaternion.identity, kickEffetOrigin);
+        Destroy(obj, 0.5f);
     }
 
     public void EndKick()
@@ -136,6 +143,8 @@ public class PlayerController : MonoBehaviour
         _block.GetComponent<Collider2D>().enabled = true;
         rb.bodyType = RigidbodyType2D.Dynamic;
         rb.AddTorque(100f, ForceMode2D.Impulse);
+        var obj = Instantiate(playerID == Player.P2 ? kickEffectInvert : kickEffect, throwEffetOrigin.position, Quaternion.identity, throwEffetOrigin);
+        Destroy(obj, 0.5f);
         _block = null;
     }
 }

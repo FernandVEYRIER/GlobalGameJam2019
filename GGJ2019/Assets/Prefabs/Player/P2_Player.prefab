@@ -936,6 +936,11 @@ MonoBehaviour:
   spawner: {fileID: 9012250590228153086}
   kickScale: 50
   kickSpeed: 40
+  kickEffect: {fileID: 45581716891827657, guid: 21bc722caf6f16444832f54fae67ac84,
+    type: 3}
+  kickEffectInvert: {fileID: 0}
+  kickEffetOrigin: {fileID: 0}
+  throwEffetOrigin: {fileID: 0}
   targetKick: {fileID: 1661738317280163618}
   ThrowObject: {fileID: 0}
 --- !u!1 &5768099672452663995

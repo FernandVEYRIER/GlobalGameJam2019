@@ -25,6 +25,7 @@ namespace Assets.Scripts.Game
 
         public UnityEvent OnTimerFinished;
         public UnityEvent OnTimerCloseToFinish;
+        public UnityEvent OnCountDownFinished;
 
         public State GameState
         {
@@ -100,6 +101,7 @@ namespace Assets.Scripts.Game
         private void StartGame()
         {
             GameState = State.PLAY;
+            OnCountDownFinished.Invoke();
         }
 
         private void Update()
@@ -152,6 +154,11 @@ namespace Assets.Scripts.Game
                 audio.Play();
                 return false;
             }
+        }
+
+        public void CamShake()
+        {
+            StartCoroutine(CameraShake(0.25f));
         }
 
         private IEnumerator CameraShake(float duration)

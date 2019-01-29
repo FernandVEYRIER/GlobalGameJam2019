@@ -1,29 +1,38 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityTools.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-
+    public GameObject PlayerButtons;
+    public GameObject Credits;
+    public GameObject Exit;
+    public GameObject Sound;
     public Animator P1Button;
     public Animator P2Button;
     public AudioSource P1;
     public AudioSource P2;
-
+    public GameObject CreditsPanel;
     private string[] buildInputs = new[] { "BuildP1", "BuildP2" };
     private string[] throwInputs = new[] { "ThrowP1", "ThrowP2" };
     private bool p1Ready = false;
     private bool p2Ready = false;
 
     private bool isLoding = false;
+
+    private bool visible = true;
     // Start is called before the first frame update
 
     // Update is called once per frame
     void Update()
     {
-        CheckP1();
-        CheckP2();
+        if (visible)
+        {
+            CheckP1();
+            CheckP2();
+        }
     }
 
     void CheckP1()
@@ -61,6 +70,37 @@ public class MainMenu : MonoBehaviour
 
     public void OpenCredits()
     {
-        SceneManager.Instance.LoadLevelIndex(3);
+        CreditsPanel.SetActive(true);
+        Hide();
+    }
+
+    public void CloseCredits()
+    {
+        CreditsPanel.SetActive(false);
+        Show();
+        Credits.GetComponent<Button>().Select();
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
+
+    public void Show()
+    {
+        PlayerButtons.SetActive(true);
+        Credits.SetActive(true);
+        Exit.SetActive(true);
+        Sound.SetActive(true);
+        visible = true;
+    }
+
+    public void Hide()
+    {
+        PlayerButtons.SetActive(false);
+        Credits.SetActive(false);
+        Exit.SetActive(false);
+        Sound.SetActive(false);
+        visible = false;
     }
 }

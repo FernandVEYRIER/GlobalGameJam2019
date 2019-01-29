@@ -1,10 +1,15 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 using UnityTools.SceneManagement;
 
 namespace Assets.Scripts.Game
 {
     public class CanvasManager : MonoBehaviour
     {
+        public UnityEvent OnPlay;
+        public UnityEvent OnPause;
+        public UnityEvent OnGameOver;
+
         [SerializeField]
         private RectTransform panelGame;
 
@@ -24,16 +29,19 @@ namespace Assets.Scripts.Game
             switch (e.Current)
             {
                 case GameManager.State.PLAY:
+                    OnPlay.Invoke();
                     panelGame.gameObject.SetActive(true);
                     panelGameOver.gameObject.SetActive(false);
                     panelPause.gameObject.SetActive(false);
                     break;
                 case GameManager.State.PAUSE:
+                    OnPause.Invoke();
                     panelGame.gameObject.SetActive(false);
                     panelGameOver.gameObject.SetActive(false);
                     panelPause.gameObject.SetActive(true);
                     break;
                 case GameManager.State.GAME_OVER:
+                    OnGameOver.Invoke();
                     panelGame.gameObject.SetActive(false);
                     panelGameOver.gameObject.SetActive(true);
                     panelPause.gameObject.SetActive(false);

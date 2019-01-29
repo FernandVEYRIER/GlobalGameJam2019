@@ -5,9 +5,9 @@ namespace Assets.Scripts.UI
 {
     public class CreditsCanvasManager : MonoBehaviour
     {
-        public void LoadMainMenu()
-        {
-            SceneManager.Instance.LoadLevelIndex(0);
-        }
+        //public void LoadMainMenu()
+        //{
+        //    SceneManager.Instance.LoadLevelIndex(0);
+        //}
     }
 }
