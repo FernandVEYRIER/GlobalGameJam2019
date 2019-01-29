@@ -2326,7 +2326,7 @@ GameObject:
   m_Layer: 0
   m_Name: End
   m_TagString: Untagged
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -4408,15 +4408,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 86095334080753520, guid: 14d9632d339ef5d4ba40ac1e4d2c830d,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.36
-      objectReference: {fileID: 0}
     - target: {fileID: 4158637074711360872, guid: 14d9632d339ef5d4ba40ac1e4d2c830d,
         type: 3}
       propertyPath: m_Name
       value: P1_Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 86095334080753520, guid: 14d9632d339ef5d4ba40ac1e4d2c830d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.36
       objectReference: {fileID: 0}
     - target: {fileID: 3111159944828447948, guid: 14d9632d339ef5d4ba40ac1e4d2c830d,
         type: 3}
@@ -4533,7 +4533,7 @@ PrefabInstance:
         type: 3}
       propertyPath: throwEffetOrigin
       value: 
-      objectReference: {fileID: 1756353534}
+      objectReference: {fileID: 1723092940}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14d9632d339ef5d4ba40ac1e4d2c830d, type: 3}
 --- !u!1 &2069656385
@@ -4584,7 +4584,7 @@ GameObject:
   m_Layer: 0
   m_Name: Start
   m_TagString: Untagged
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1

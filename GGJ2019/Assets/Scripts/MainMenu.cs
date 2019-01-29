@@ -26,6 +26,11 @@ public class MainMenu : MonoBehaviour
     // Start is called before the first frame update
 
     // Update is called once per frame
+
+    void Start()
+    {
+        Cursor.visible = false;
+    }
     void Update()
     {
         if (visible)

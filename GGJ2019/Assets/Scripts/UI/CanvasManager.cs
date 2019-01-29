@@ -41,6 +41,7 @@ namespace Assets.Scripts.Game
                     panelPause.gameObject.SetActive(true);
                     break;
                 case GameManager.State.GAME_OVER:
+                    Cursor.visible = true;
                     OnGameOver.Invoke();
                     panelGame.gameObject.SetActive(false);
                     panelGameOver.gameObject.SetActive(true);
