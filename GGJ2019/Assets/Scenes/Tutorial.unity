@@ -898,15 +898,15 @@ MonoBehaviour:
     sentences:
     - Hello Cons!
     - Hi Struct!
-    - I have nice news for you, today I'm gonna to build the highest house of this
-      city, but for this I need your help!
+    - I have nice news for you, today I'm gonna build the highest house of this city,
+      but for this I need your help!
     - What can I do for you, bro :)
     - To build a house we have to create some bricks, and for that we need two blocks
       that fit together. As you can see above.
     - Hum, ok I see so I just need to push "RB" right?
     - Exactly, and when the blocks don't fit, you can throw them away with "LB".
     - Ok, I think I got it!
-    - One last thing too, if you are the player of the right your commands are inverted
+    - One last thing, if you are the player of the right your commands are inverted
       so you can build and throw cubes with "LB" and "RB" respectively.
     - Ok nice, let's kick some blocks!!!
 --- !u!4 &1867033580
