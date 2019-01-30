@@ -83,6 +83,11 @@ public class MainMenu : MonoBehaviour
     {
         CreditsPanel.SetActive(false);
         Show();
+        SelectCredits();
+    }
+
+    public void SelectCredits()
+    {
         Credits.GetComponent<Button>().Select();
     }
 
